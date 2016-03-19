@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1100 1100" preserveAspectRatio="xMinYMin meet">
+<defs>
+	<filter id="KorovaTen" height="200%" width="200%">
+		<feGaussianBlur in="SourceAlpha" stdDeviation="50" result="blur"/>
+		<feOffset in="blur" dx="50" dy="50" result="offsetBlur"/>
+		<feComponentTransfer in="offsetBlur" result="alfa">
+			<feFuncA slope="0.6" intercept="0" type="linear"/>
+		</feComponentTransfer>
+		<feMerge>  
+			<feMergeNode in="alfa"/> 
+			<feMergeNode in="SourceGraphic"/> 
+		</feMerge>
+ 	</filter>
+	<radialGradient id="korovaSvet">
+		<stop offset="0%" stop-color="white" stop-opacity="0.75"/>
+		<stop offset="20%" stop-color="white" stop-opacity="0.5"/>
+		<stop offset="100%" stop-color="white" stop-opacity="0"/>
+	</radialGradient>
+</defs>
+<g filter="url(#KorovaTen)" transform="translate(550, 550)">
+	<g id="korovaG" transform="rotate(-45)">
+		<ellipse cx="0" cy="0" rx="300" ry="250" fill="#e00" stroke="#800" stroke-width="20"/>
+		<line x1="-300" x2="300" y1="0" y2="0" stroke="#700" stroke-width="20"/>
+		<polygon points="260,-140 260,140 380,0" stroke-linejoin="round" stroke="black" stroke-width="50" />
+		<path d="M316-112a40,20 50 1 0 36,42z" fill="white" id="korovaGlaz" />
+		<use xlink:href="#korovaGlaz" transform="scale(1,-1)" />
+		<line x1="370" y1="30" x2="450" y2="100" stroke="black" stroke-width="15">
+			<animateTransform attributeName="transform" type="rotate" values="0 370 30;20 370 30;0 370 30" begin="0" repeatCount="indefinite" dur="1s" />
+		</line>
+		<line x1="370" y1="-30" x2="450" y2="-100" stroke="black" stroke-width="15">
+			<animateTransform attributeName="transform" type="rotate" values="0 370 -30;-20 370 -30;0 370 -30" begin="0" repeatCount="indefinite" dur="1s" />
+		</line>
+		<circle cx="160" cy="0" r="60"/>
+		<circle cx="-70" cy="100" r="60"/>
+		<circle cx="-70" cy="-100" r="60"/>
+		<ellipse cx="0" cy="0" rx="40" ry="20" transform="rotate(20) translate(30,-245)" />
+		<ellipse cx="0" cy="0" rx="40" ry="20" transform="rotate(-20) translate(30,245)" />
+		<ellipse cx="0" cy="0" rx="40" ry="20" transform="rotate(30) translate(-80,250)" />
+		<ellipse cx="0" cy="0" rx="40" ry="20" transform="rotate(-30) translate(-80,-250)" />
+		<animateTransform id="korovaR" attributeName="transform" type="rotate" from="0" to="360" begin="indefinite" dur="0.4s" fill="freeze" />   
+	</g>
+	<circle cx="-100" cy="-100" r="150" fill="url(#korovaSvet)"/>
+</g>
+</svg>
